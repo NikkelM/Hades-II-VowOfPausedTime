@@ -6,7 +6,7 @@ schemaVersion = "0.0.1"
 namespace = "NikkelM"
 name = "Vow_of_More_or_Less_Time"
 versionNumber = "0.0.0"
-description = "Pauses the Vow of Time's timer outside of combat, and allows tweaking it's numbers."
+description = "Alters the Vow of Time to pause the timer outside of combat. Also allows tweaking it's time limits."
 websiteUrl = "https://github.com/NikkelM"
 containsNsfwContent = false
 
