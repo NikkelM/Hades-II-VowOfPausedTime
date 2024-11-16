@@ -10,7 +10,7 @@ local config = {
 
 local configDesc = {
   enabled = "Whether the mod is enabled or not.";
-  disableTimerOutOfCombat = "Whether the timer of the \"Vow of Time\" should be paused when combat ends or not.";
+  disableTimerOutOfCombat = "Whether the timer of the \"Vow of Time\" should be paused outside of combat. The timer will only run when enemies are present (includes random enemies in the Fields of Mourning and enemies in the Ephyra town square).";
   pauseVowTimerOnly = "Whether only the timer of the \"Vow of Timer\" should be paused out of combat. If false, all game timers will pause out of combat (e.g. run timer, timed keepsakes, chaos time curse etc.)";
   timeEasyTier = "How much time per region you are given on the first tier of the \"Vow of Time\", in seconds. Can also be expressed as e.g. \"60*9\". Default is 9 minutes, suggested new time with this mod is 7:30 minutes.";
   timeMediumTier = "How much time per region you are given on the second tier of the \"Vow of Time\", in seconds. Can also be expressed as e.g. \"60*7\". Default is 7 minutes, suggested new time with this mod is 6 minutes.";

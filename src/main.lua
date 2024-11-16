@@ -61,10 +61,12 @@ local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
 
+	import 'Scripts/ShrineData.lua'
+	import 'Scripts/MetaUpgradeData.lua'
 	import 'Scripts/RoomLogic.lua'
 	import 'Scripts/EncounterLogic.lua'
 	import 'Scripts/RunLogic.lua'
-	import 'Scripts/MetaUpgradeData.lua'
+	import 'Scripts/MetaUpgrades.lua'
 end
 
 local function on_reload()
