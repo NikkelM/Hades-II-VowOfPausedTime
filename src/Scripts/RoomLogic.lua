@@ -24,17 +24,20 @@ modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
 	-- Remove the timer block when a unit is spawned
 	if config.disableTimerOutOfCombat and unit.AddToEnemyTeam then
 		print("Removing timer block (SetupUnit)")
-		game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
+		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = false
+		-- game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
 	end
 
 	base(unit, currentRun, args)
 end)
 
 modutil.mod.Path.Wrap("BeginOpeningEncounter", function(base, encounter)
+	print("BeginOpeningEncounter")
 	-- Add the timer block when entering the first room of the run
 	if config.disableTimerOutOfCombat then
 		print("Adding timer block (BeginOpeningEncounter)")
-		game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
+		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = true
+		-- game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
 	end
 
 	base(encounter)

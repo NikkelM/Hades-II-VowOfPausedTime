@@ -2,7 +2,8 @@ modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEnc
 	-- Remove the timer block when combat starts
 	if config.disableTimerOutOfCombat then
 		print("Adding timer block (OnAllEnemiesDead)")
-		game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
+		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = true
+		-- game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
 	end
 
 	base(currentRoom, currentEncounter)

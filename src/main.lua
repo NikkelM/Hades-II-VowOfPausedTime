@@ -63,6 +63,7 @@ local function on_ready()
 
 	import 'Scripts/RoomLogic.lua'
 	import 'Scripts/EncounterLogic.lua'
+	import 'Scripts/MetaUpgrades.lua'
 end
 
 local function on_reload()
