@@ -1,6 +1,10 @@
+-- Pause the timer when combat ends
 modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEncounter)
-	-- Pause the timer when combat ends
-	if config.disableTimerOutOfCombat then
+	-- Do not pause the timer if we are in a Mourning Fields normal combat room
+	if currentRoom.RoomSetName == "H" and string.find(currentRoom.Name, "H_Combat") then
+		base(currentRoom, currentEncounter)
+		return
+	elseif config.disableTimerOutOfCombat then
 		if config.pauseVowTimerOnly then
 			ModVowOfMoreOrLessTimeHandleTimerPause(true)
 		else
