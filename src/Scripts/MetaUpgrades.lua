@@ -1,7 +1,7 @@
 -- Wrap around the function that checks if the player should be damaged after running out of time
 modutil.mod.Path.Wrap("BiomeSpeedTimerLoop", function(base)
 	-- If a save is loaded, the default BiomeTimeLimits.Penalty.Interval will be 1, so we need to make sure it is set to the correct value if the timer is actually paused at the moment
-	if config.pauseVowTimerOnly and game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused then
+	if not config.pauseAllTimers and game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused then
 		game.BiomeTimeLimits.Penalty.Interval = game.BiomeTimeLimits.Penalty.ModVowOfMoreOrLessTimePausedTimerInterval
 	end
 

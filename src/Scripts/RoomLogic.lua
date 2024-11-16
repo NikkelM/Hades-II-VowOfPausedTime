@@ -13,7 +13,7 @@ end
 modutil.mod.Path.Wrap("StartRoom", function(base, currentRun, currentRoom)
 	-- Pause the timer when loading the first room in a biome (especially for first room of the run)
 	if currentRoom.BiomeStartRoom then
-		if config.pauseVowTimerOnly then
+		if not config.pauseAllTimers then
 			ModVowOfMoreOrLessTimeHandleTimerPause(true)
 		else
 			-- This pauses all timers, including the run timer, timed keepsakes and the chaos time curse
@@ -27,7 +27,7 @@ end)
 modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
 	-- Resume the timer when an enemy unit spawns
 	if config.disableTimerOutOfCombat and unit.AddToEnemyTeam then
-		if config.pauseVowTimerOnly then
+		if not config.pauseAllTimers then
 			ModVowOfMoreOrLessTimeHandleTimerPause(false)
 		else
 			game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
