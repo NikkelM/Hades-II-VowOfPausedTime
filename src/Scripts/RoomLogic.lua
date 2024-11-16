@@ -17,7 +17,7 @@ modutil.mod.Path.Wrap("StartRoom", function(base, currentRun, currentRoom)
 			ModVowOfMoreOrLessTimeHandleTimerPause(true)
 		else
 			-- This pauses all timers, including the run timer, timed keepsakes and the chaos time curse
-			game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
+			game.AddTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
 		end
 	end
 
@@ -30,7 +30,7 @@ modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
 		if config.pauseVowTimerOnly then
 			ModVowOfMoreOrLessTimeHandleTimerPause(false)
 		else
-			game.RemoveTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
+			game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
 		end
 	end
 
