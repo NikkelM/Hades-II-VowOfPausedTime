@@ -1,44 +1,17 @@
--- modutil.mod.Path.Wrap("StartEncounter", function(base, currentRun, currentRoom, encounter)
--- 	base(currentRun, currentRoom, encounter)
+modutil.mod.Path.Wrap("StartRoom", function(base, currentRun, currentRoom)
+	-- Pause the timer when loading the first room in a biome (especially for first room of the run)
+	if currentRoom.BiomeStartRoom then
+		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = true
+	end
 
--- 	-- Remove the timer block when combat starts
--- 	print(encounter.InProgress)
--- 	if config.disableTimerOutOfCombat and encounter.InProgress then
--- 		print("Removing timer block (StartEncounter)")
--- 		game.RemoveTimerBlock(currentRun, "ModVowOfMoreOrLessTime")
--- 	end
-
--- end)
-
--- modutil.mod.Path.Wrap("EndEncounterEffects", function(base, currentRun, currentRoom, currentEncounter)
--- 	-- Add the timer block when combat starts
--- 	if config.disableTimerOutOfCombat then
--- 		print("Adding timer block (EndEncounterEffects)")
--- 		game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
--- 	end
-
--- 	base(currentRun, currentRoom, currentEncounter)
--- end)
+	base(currentRun, currentRoom)
+end)
 
 modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
-	-- Remove the timer block when a unit is spawned
+	-- Resume the timer when an enemy unit spawns
 	if config.disableTimerOutOfCombat and unit.AddToEnemyTeam then
-		print("Removing timer block (SetupUnit)")
 		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = false
-		-- game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfMoreOrLessTime")
 	end
 
 	base(unit, currentRun, args)
-end)
-
-modutil.mod.Path.Wrap("BeginOpeningEncounter", function(base, encounter)
-	print("BeginOpeningEncounter")
-	-- Add the timer block when entering the first room of the run
-	if config.disableTimerOutOfCombat then
-		print("Adding timer block (BeginOpeningEncounter)")
-		game.CurrentRun.ModVowOfMoreOrLessTimeTimerPaused = true
-		-- game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
-	end
-
-	base(encounter)
 end)
