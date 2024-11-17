@@ -1,4 +1,4 @@
-# Vow of Paused Time
+# Vow of (Paused) Time
 
 Alters the "Vow of Time", pausing its timer outside of combat.
 
