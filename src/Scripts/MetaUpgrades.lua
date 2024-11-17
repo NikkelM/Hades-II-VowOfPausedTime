@@ -7,7 +7,7 @@ modutil.mod.Path.Wrap("BiomeSpeedTimerLoop", function(base)
 
 	-- Give a miniscule amount of time to prevent the penalty from triggering when first entering a cleared room
 	-- The wait call is at the end of the function, so the first iteration of the loop would still run without this
-	if game.CurrentRun.BiomeTime <= 0 and config.disableTimerOutOfCombat and game.BiomeTimeLimits.Penalty.Interval == game.BiomeTimeLimits.Penalty.ModVowOfPausedTimePausedTimerInterval then
+	if game.CurrentRun.BiomeTime <= 0 and (config.disableTimerOutOfCombat or config.pauseAllTimers) and game.BiomeTimeLimits.Penalty.Interval == game.BiomeTimeLimits.Penalty.ModVowOfPausedTimePausedTimerInterval then
 		game.CurrentRun.BiomeTime = 0.001
 	end
 

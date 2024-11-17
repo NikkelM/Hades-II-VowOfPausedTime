@@ -26,7 +26,7 @@ end)
 
 modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
 	-- Resume the timer when an enemy unit spawns
-	if config.disableTimerOutOfCombat and unit.AddToEnemyTeam then
+	if (config.disableTimerOutOfCombat or config.pauseAllTimers) and unit.AddToEnemyTeam then
 		if not config.pauseAllTimers then
 			ModVowOfPausedTimeHandleTimerPause(false)
 		else

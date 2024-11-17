@@ -4,7 +4,7 @@ modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEnc
 	if currentRoom.RoomSetName == "H" and string.find(currentRoom.Name, "H_Combat") then
 		base(currentRoom, currentEncounter)
 		return
-	elseif config.disableTimerOutOfCombat then
+	elseif config.disableTimerOutOfCombat or config.pauseAllTimers then
 		if not config.pauseAllTimers then
 			ModVowOfPausedTimeHandleTimerPause(true)
 		else

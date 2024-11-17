@@ -7,7 +7,7 @@ local order = {
   "Description"
 }
 
-local newData = {
+local newVowDescription = {
   {
     Id = "BiomeSpeedShrineUpgrade",
     DisplayName = "Vow of Paused Time",
@@ -20,11 +20,30 @@ local newData = {
   }
 }
 
+local newChaosTimeCurse = {
+  {
+    Id = "ChaosTimeCurse",
+    DisplayName = "Doomed",
+    Description =
+    "If you have not cleared {#BoldFormatGraft}{$TooltipData.RemainingUses} {#Prev}{$Keywords.Encounter} in {#BoldFormatGraft}{$TooltipData.ExtractData.Duration} Sec.{#Prev}, you take {#AltPenaltyFormat}{$TooltipData.ExtractData.Damage} {#Prev}damage.\n{#ItalicFormat}The timer {#BoldFormat}does not {#ItalicFormat} pause outside of combat."
+  }
+}
+
 local helpTextFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/TraitText.en.sjson')
 
-if config.disableTimerOutOfCombat then
+-- Change the description of the Vow of Time if the timer pauses outside of combat
+if config.disableTimerOutOfCombat or config.pauseAllTimers then
   sjson.hook(helpTextFile, function(data)
-    for _, newValue in ipairs(newData) do
+    for _, newValue in ipairs(newVowDescription) do
+      table.insert(data.Texts, sjson.to_object(newValue, order))
+    end
+  end)
+end
+
+-- Add a note that the Chaos time curse timer will not pause outside of combat
+if config.disableTimerOutOfCombat and not config.pauseAllTimers then
+  sjson.hook(helpTextFile, function(data)
+    for _, newValue in ipairs(newChaosTimeCurse) do
       table.insert(data.Texts, sjson.to_object(newValue, order))
     end
   end)
