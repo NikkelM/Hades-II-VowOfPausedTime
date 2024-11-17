@@ -16,7 +16,6 @@ modutil.mod.Path.Wrap("StartRoom", function(base, currentRun, currentRoom)
 		if not config.disableAllTimersOutOfCombat then
 			ModVowOfPausedTimeHandleTimerPause(true)
 		else
-			-- This pauses all timers, including the run timer, timed keepsakes and the chaos time curse
 			game.AddTimerBlock(currentRun or game.CurrentRun, "ModVowOfPausedTime")
 		end
 	end
