@@ -6,10 +6,10 @@ modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEnc
 		return
 	elseif config.disableTimerOutOfCombat then
 		if not config.pauseAllTimers then
-			ModVowOfMoreOrLessTimeHandleTimerPause(true)
+			ModVowOfPausedTimeHandleTimerPause(true)
 		else
 			-- This pauses all timers, including the run timer, timed keepsakes and the chaos time curse
-			game.AddTimerBlock(game.CurrentRun, "ModVowOfMoreOrLessTime")
+			game.AddTimerBlock(game.CurrentRun, "ModVowOfPausedTime")
 		end
 	end
 
