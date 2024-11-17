@@ -7,7 +7,7 @@ namespace = "NikkelM"
 name = "Vow_of_Paused_Time"
 versionNumber = "0.0.0"
 description = "Pauses the Vow of Time's timer outside of combat. Also allows tweaking it's time limits for more or less of a challenge."
-websiteUrl = "https://github.com/NikkelM"
+websiteUrl = "https://github.com/NikkelM/Hades-II-VowOfPausedTime"
 containsNsfwContent = false
 
 [package.dependencies]
