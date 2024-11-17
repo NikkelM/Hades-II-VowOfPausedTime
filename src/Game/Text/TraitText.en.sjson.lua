@@ -10,7 +10,7 @@ local order = {
 local newVowDescription = {
   {
     Id = "BiomeSpeedShrineUpgrade",
-    DisplayName = "Vow of Paused Time",
+    DisplayName = "Vow of (Paused) Time",
     Description =
     "You have {#ShrinePenaltyFormat}{$MetaUpgradeData.BiomeSpeedShrineUpgrade.DisplayValue} {#Prev}to fight through each {$Keywords.Biome} {#ItalicFormat}(or else...){#Prev}.\n{#ItalicFormat}The timer will pause outside of combat."
   },
