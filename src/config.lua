@@ -1,8 +1,7 @@
 local config = {
-  version = 0,
   enabled = true,
   disableVowTimerOutOfCombat = true,
-  disableAllTimersOutOfCombat = true,
+  disableAllTimersOutOfCombat = false,
   vowOfTimeEasyTier = 60 * 7.5,
   vowOfTimeMediumTier = 60 * 6,
   vowOfTimeHardTier = 60 * 4,
