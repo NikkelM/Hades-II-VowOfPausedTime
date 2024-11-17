@@ -4,8 +4,8 @@ modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEnc
 	if currentRoom.RoomSetName == "H" and string.find(currentRoom.Name, "H_Combat") then
 		base(currentRoom, currentEncounter)
 		return
-	elseif config.disableTimerOutOfCombat or config.pauseAllTimers then
-		if not config.pauseAllTimers then
+	elseif config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
+		if not config.disableAllTimersOutOfCombat then
 			ModVowOfPausedTimeHandleTimerPause(true)
 		else
 			-- This pauses all timers, including the run timer, timed keepsakes and the chaos time curse

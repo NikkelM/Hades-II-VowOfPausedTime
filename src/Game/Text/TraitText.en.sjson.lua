@@ -42,7 +42,7 @@ local newHermesSpeedKeepsake = {
 local helpTextFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/TraitText.en.sjson')
 
 -- Change the description of the Vow of Time if the timer pauses outside of combat
-if config.disableTimerOutOfCombat or config.pauseAllTimers then
+if config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
   sjson.hook(helpTextFile, function(data)
     for _, newValue in ipairs(newVowDescription) do
       table.insert(data.Texts, sjson.to_object(newValue, order))
@@ -51,7 +51,7 @@ if config.disableTimerOutOfCombat or config.pauseAllTimers then
 end
 
 -- Add a note that the Chaos and Hermes timers will not pause outside of combat
-if config.disableTimerOutOfCombat and not config.pauseAllTimers then
+if config.disableVowTimerOutOfCombat and not config.disableAllTimersOutOfCombat then
   sjson.hook(helpTextFile, function(data)
     for _, newValue in ipairs(newChaosTimeCurse) do
       table.insert(data.Texts, sjson.to_object(newValue, order))
