@@ -61,6 +61,7 @@ local function on_ready()
 	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
 
+	import 'Game/Text/TraitText.en.sjson.lua'
 	import 'Scripts/ShrineData.lua'
 	import 'Scripts/MetaUpgradeData.lua'
 	import 'Scripts/RoomLogic.lua'
