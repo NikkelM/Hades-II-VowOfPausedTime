@@ -3,8 +3,8 @@ local config = {
   disableVowTimerOutOfCombat = true,
   disableAllTimersOutOfCombat = false,
   vowOfTimeEasyTier = 60 * 7.5,
-  vowOfTimeMediumTier = 60 * 6,
-  vowOfTimeHardTier = 60 * 4,
+  vowOfTimeMediumTier = 60 * 5.5,
+  vowOfTimeHardTier = 60 * 4.5,
 }
 
 local configDesc = {
@@ -16,9 +16,9 @@ local configDesc = {
   vowOfTimeEasyTier =
   "Time per region on the first (easiest) tier of the \"Vow of Time\", in seconds. The game's default is 9 minutes, the mod lowers this to 7:30 minutes.",
   vowOfTimeMediumTier =
-  "Time per region on the second tier of the \"Vow of Time\", in seconds. The game's default is 7 minutes, the mod lowers this to 6 minutes.",
+  "Time per region on the second tier of the \"Vow of Time\", in seconds. The game's default is 7 minutes, the mod lowers this to 5:30 minutes.",
   vowOfTimeHardTier =
-  "Time per region on the third (most difficult) tier of the \"Vow of Time\", in seconds. The game's default is 5 minutes, the mod lowers this to 4 minutes.",
+  "Time per region on the third (most difficult) tier of the \"Vow of Time\", in seconds. The game's default is 5 minutes, the mod lowers this to 4:30 minutes.",
 }
 
 return config, configDesc
