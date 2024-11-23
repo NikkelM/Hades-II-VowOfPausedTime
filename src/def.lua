@@ -1,4 +1,4 @@
----@meta NikkelM-Hades_OST_for_the_Music_Maker
+---@meta NikkelM-Vow_of_Paused_Time
 local public = {}
 
 -- document whatever you made publicly available to other plugins here
