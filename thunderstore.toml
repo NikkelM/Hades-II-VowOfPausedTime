@@ -5,7 +5,7 @@ schemaVersion = "0.0.1"
 [package]
 namespace = "NikkelM"
 name = "Vow_of_Paused_Time"
-versionNumber = "1.0.0"
+versionNumber = "1.1.0"
 description = "Pauses the Vow of Time's timer outside of combat. Also allows pausing all in-game timers and tweaking the Vow's time limits for more or less of a challenge."
 websiteUrl = "https://github.com/NikkelM/Hades-II-VowOfPausedTime"
 containsNsfwContent = false
