@@ -1,10 +1,15 @@
 # Changelog
 
-## v1.1.0
+## v1.1.1
 
 <!--Releasenotes start-->
-- Updated the default configuration options to be less confusing.
+- Added German localization.
+- Updated dependencies, confirmed compatibility with the 1.0 update of Hades II.
 <!--Releasenotes end-->
+
+## v1.1.0
+
+- Updated the default configuration options to be less confusing.
 
 ## v1.0.0
 

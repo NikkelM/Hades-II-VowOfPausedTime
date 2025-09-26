@@ -1,5 +1,5 @@
 -- Pauses/Unpauses the timer and sets the health penalty interval accordingly
-function ModVowOfPausedTimeHandleTimerPause(pause)
+function mod.VowOfPausedTimeHandleTimerPause(pause)
 	game.CurrentRun.ModVowOfPausedTimeTimerPaused = pause
 	if pause then
 		-- Set the dummy, increased value to prevent health from ticking down when the timer is paused
@@ -14,7 +14,7 @@ modutil.mod.Path.Wrap("StartRoom", function(base, currentRun, currentRoom)
 	-- Pause the timer when loading the first room in a biome (especially for first room of the run)
 	if currentRoom.BiomeStartRoom then
 		if not config.disableAllTimersOutOfCombat then
-			ModVowOfPausedTimeHandleTimerPause(true)
+			mod.VowOfPausedTimeHandleTimerPause(true)
 		else
 			game.AddTimerBlock(currentRun or game.CurrentRun, "ModVowOfPausedTime")
 		end
@@ -27,7 +27,7 @@ modutil.mod.Path.Wrap("SetupUnit", function(base, unit, currentRun, args)
 	-- Resume the timer when an enemy unit spawns
 	if (config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat) and unit.AddToEnemyTeam then
 		if not config.disableAllTimersOutOfCombat then
-			ModVowOfPausedTimeHandleTimerPause(false)
+			mod.VowOfPausedTimeHandleTimerPause(false)
 		else
 			game.RemoveTimerBlock(currentRun or game.CurrentRun, "ModVowOfPausedTime")
 		end

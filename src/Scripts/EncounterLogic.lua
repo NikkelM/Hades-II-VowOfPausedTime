@@ -1,12 +1,9 @@
 -- Pause the timer when combat ends
 modutil.mod.Path.Wrap("OnAllEnemiesDead", function(base, currentRoom, currentEncounter)
-	-- Do not pause the timer if we are in a Mourning Fields normal combat room
-	if currentRoom.RoomSetName == "H" and string.find(currentRoom.Name, "H_Combat") then
-		base(currentRoom, currentEncounter)
-		return
-	elseif config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
+	-- Only apply timer logic if not in a Mourning Fields normal combat room
+	if (not (currentRoom.RoomSetName == "H" and string.find(currentRoom.Name, "H_Combat"))) and (config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat) then
 		if not config.disableAllTimersOutOfCombat then
-			ModVowOfPausedTimeHandleTimerPause(true)
+			mod.VowOfPausedTimeHandleTimerPause(true)
 		else
 			game.AddTimerBlock(game.CurrentRun, "ModVowOfPausedTime")
 		end
@@ -20,7 +17,7 @@ modutil.mod.Path.Wrap("WaitForArachneRewardFound", function(base, encounter)
 	-- Enemies spawn only when one is found, so one could assume the timer is always paused in this room when checking only when entering, but it should behave as a normal combat does
 	if (config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat) then
 		if not config.disableAllTimersOutOfCombat then
-			ModVowOfPausedTimeHandleTimerPause(false)
+			mod.VowOfPausedTimeHandleTimerPause(false)
 		else
 			game.RemoveTimerBlock(game.CurrentRun, "ModVowOfPausedTime")
 		end
@@ -32,7 +29,7 @@ modutil.mod.Path.Wrap("WaitForArachneRewardFound", function(base, encounter)
 	-- When finding the Arachne reward, pause the timer
 	if config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
 		if not config.disableAllTimersOutOfCombat then
-			ModVowOfPausedTimeHandleTimerPause(true)
+			mod.VowOfPausedTimeHandleTimerPause(true)
 		else
 			game.AddTimerBlock(game.CurrentRun, "ModVowOfPausedTime")
 		end
