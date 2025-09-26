@@ -6,10 +6,10 @@ This allows you to take your time after an encounter to pick up rewards, gather 
 
 Optionally offers configuration options to alter the amount of time given by each tier of the vow per region, to either make the vow more or less challenging.
 
-![Vow of (Paused) Time](https://github.com/user-attachments/assets/5a48d6cf-03ee-4dc6-9de3-c06322ce6502)
+![Vow of (Paused) Time](https://github.com/user-attachments/assets/86aa1f48-0bd3-47fc-ae96-1bbb74129a1c)
 
-You can also choose to have the mod pause *all* in-game timers outside of combat, instead of only the Vow's timer.
-This will pause timers on e.g. Hermes' keepsake, Chaos' curse and also the overall clear timer. 
+You can also choose to have the mod pause *all* in-game timers outside of combat, instead of only the vow's timer.
+This will pause timers on e.g. Hermes' keepsake, Chaos' curse and also the overall run clear timer. 
 
 Pausing the timer outside of combat can be turned off in the config, in case you only want to tweak the raw numbers the vow offers.
 

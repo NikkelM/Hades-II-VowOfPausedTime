@@ -3,6 +3,7 @@
 ## v1.1.1
 
 <!--Releasenotes start-->
+- Added German localization.
 - Updated dependencies, confirmed compatibility with the 1.0 update of Hades II.
 <!--Releasenotes end-->
 
