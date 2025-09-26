@@ -46,13 +46,15 @@ local function on_ready()
 	if config.enabled == false then return end
 	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
-	import 'Game/Text/TraitText.en.sjson.lua'
 	import 'Scripts/ShrineData.lua'
 	import 'Scripts/MetaUpgradeData.lua'
 	import 'Scripts/RoomLogic.lua'
 	import 'Scripts/EncounterLogic.lua'
 	import 'Scripts/RunLogic.lua'
 	import 'Scripts/MetaUpgrades.lua'
+
+	import 'Game/Text/TraitText.de.sjson.lua'
+	import 'Game/Text/TraitText.en.sjson.lua'
 end
 
 local function on_reload()
