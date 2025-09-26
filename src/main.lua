@@ -3,6 +3,8 @@
 -- these funky (---@) comments are just there
 --	 to help VS Code find the definitions of things
 
+import = require
+
 ---@diagnostic disable-next-line: undefined-global
 local mods = rom.mods
 
@@ -21,6 +23,7 @@ _PLUGIN = _PLUGIN
 ---@module 'game'
 game = rom.game
 ---@module 'game-import'
+---@diagnostic disable-next-line: undefined-global
 import_as_fallback(game)
 
 ---@module 'SGG_Modding-SJSON'
@@ -36,30 +39,12 @@ reload = mods['SGG_Modding-ReLoad']
 ---@module 'config'
 config = chalk.auto 'config.lua'
 -- ^ this updates our `.cfg` file in the config folder!
+---@diagnostic disable-next-line: undefined-global
 public.config = config -- so other mods can access our config
 
--- For debugging
--- function printTable(t, indent)
--- 	if type(t) ~= "table" then
--- 		print("Error: Expected a table, got " .. type(t))
--- 		return
--- 	end
-
--- 	indent = indent or 0
--- 	local formatting = string.rep("  ", indent)
--- 	for k, v in pairs(t) do
--- 		if type(v) == "table" then
--- 			print(formatting .. k .. ":")
--- 			printTable(v, indent + 1)
--- 		else
--- 			print(formatting .. k .. ": " .. tostring(v))
--- 		end
--- 	end
--- end
-
 local function on_ready()
-	-- what to do when we are ready, but not re-do on reload.
 	if config.enabled == false then return end
+	mod = modutil.mod.Mod.Register(_PLUGIN.guid)
 
 	import 'Game/Text/TraitText.en.sjson.lua'
 	import 'Scripts/ShrineData.lua'
