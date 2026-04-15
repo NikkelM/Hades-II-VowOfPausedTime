@@ -9,11 +9,11 @@ local newVowDescription = {
     Id = "BiomeSpeedShrineUpgrade",
     DisplayName = "Vow of (Paused) Time",
     Description =
-    "You have {#ShrinePenaltyFormat}{$MetaUpgradeData.BiomeSpeedShrineUpgrade.DisplayValue} {#Prev}to fight through each {$Keywords.Biome} {#ItalicFormat}(or else...){#Prev}.\n{#ItalicFormat}The timer will pause outside of combat."
+    "You have {#ShrinePenaltyFormat}{$MetaUpgradeData.BiomeSpeedShrineUpgrade.DisplayValue} {#Prev}to fight through each {$Keywords.Biome} {#ItalicFormat}(or else...){#Prev}.\n{#ItalicFormat}However, this timer will pause outside of combat."
   },
   {
     Id = "BiomeSpeedShrineUpgrade_Flavor",
-    DisplayName = "“Upon this night there shall be but brief respites, that Fear may spread.”"
+    DisplayName = "“Upon this night there shall be but brief respite, that Fear may spread.”"
   }
 }
 
@@ -41,8 +41,12 @@ local helpTextFile = rom.path.combine(rom.paths.Content, 'Game/Text/en/TraitText
 -- Change the description of the Vow of Time if the timer pauses outside of combat
 if config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
   sjson.hook(helpTextFile, function(data)
-    for _, newValue in ipairs(newVowDescription) do
-      table.insert(data.Texts, sjson.to_object(newValue, order))
+    for i, existingText in ipairs(data.Texts) do
+      for _, newValue in ipairs(newVowDescription) do
+        if existingText.Id == newValue.Id then
+          data.Texts[i] = sjson.to_object(newValue, order)
+        end
+      end
     end
   end)
 end
@@ -50,11 +54,17 @@ end
 -- Add a note that the Chaos and Hermes timers will not pause outside of combat
 if config.disableVowTimerOutOfCombat and not config.disableAllTimersOutOfCombat then
   sjson.hook(helpTextFile, function(data)
-    for _, newValue in ipairs(newChaosTimeCurse) do
-      table.insert(data.Texts, sjson.to_object(newValue, order))
-    end
-    for _, newValue in ipairs(newHermesSpeedKeepsake) do
-      table.insert(data.Texts, sjson.to_object(newValue, order))
+    for i, existingText in ipairs(data.Texts) do
+      for _, newValue in ipairs(newChaosTimeCurse) do
+        if existingText.Id == newValue.Id then
+          data.Texts[i] = sjson.to_object(newValue, order)
+        end
+      end
+      for _, newValue in ipairs(newHermesSpeedKeepsake) do
+        if existingText.Id == newValue.Id then
+          data.Texts[i] = sjson.to_object(newValue, order)
+        end
+      end
     end
   end)
 end

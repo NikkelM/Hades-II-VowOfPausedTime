@@ -54,7 +54,20 @@ local function on_ready()
 	import 'Scripts/MetaUpgrades.lua'
 
 	import 'Game/Text/TraitText.de.sjson.lua'
+	-- import 'Game/Text/TraitText.el.sjson.lua'
 	import 'Game/Text/TraitText.en.sjson.lua'
+	-- import 'Game/Text/TraitText.es.sjson.lua'
+	-- import 'Game/Text/TraitText.fr.sjson.lua'
+	-- import 'Game/Text/TraitText.it.sjson.lua'
+	-- import 'Game/Text/TraitText.ja.sjson.lua'
+	-- import 'Game/Text/TraitText.ko.sjson.lua'
+	-- import 'Game/Text/TraitText.pl.sjson.lua'
+	-- import 'Game/Text/TraitText.pt-BR.sjson.lua'
+	-- import 'Game/Text/TraitText.ru.sjson.lua'
+	-- import 'Game/Text/TraitText.tr.sjson.lua'
+	-- import 'Game/Text/TraitText.uk.sjson.lua'
+	-- import 'Game/Text/TraitText.zh-CN.sjson.lua'
+	-- import 'Game/Text/TraitText.zh-TW.sjson.lua'
 end
 
 local function on_reload()

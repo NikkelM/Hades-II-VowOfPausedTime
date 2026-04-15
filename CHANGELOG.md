@@ -1,11 +1,18 @@
 # Changelog
 
-## v1.1.1
+## v1.1.2
 
 <!--Releasenotes start-->
+- Improved the way that texts are replaced.
+- Added localization support for other languages.
+- Added localization guide to the Readme.
+- Fixed some wording on the Vow description and flavor text.
+<!--Releasenotes end-->
+
+## v1.1.1
+
 - Added German localization.
 - Updated dependencies, confirmed compatibility with the 1.0 update of Hades II.
-<!--Releasenotes end-->
 
 ## v1.1.0
 
