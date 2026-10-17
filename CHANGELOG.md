@@ -1,13 +1,17 @@
 # Changelog
 
-## v1.1.2
+## v1.1.3
 
 <!--Releasenotes start-->
+- Code optimizations.
+<!--Releasenotes end-->
+
+## v1.1.2
+
 - Improved the way that texts are replaced.
 - Added localization support for other languages.
 - Added localization guide to the Readme.
 - Fixed some wording on the Vow description and flavor text.
-<!--Releasenotes end-->
 
 ## v1.1.1
 
