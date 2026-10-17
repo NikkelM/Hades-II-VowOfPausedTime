@@ -47,22 +47,17 @@ if config.disableVowTimerOutOfCombat or config.disableAllTimersOutOfCombat then
           data.Texts[i] = sjson.to_object(newValue, order)
         end
       end
-    end
-  end)
-end
-
--- Add a note that the Chaos and Hermes timers will not pause outside of combat
-if config.disableVowTimerOutOfCombat and not config.disableAllTimersOutOfCombat then
-  sjson.hook(helpTextFile, function(data)
-    for i, existingText in ipairs(data.Texts) do
-      for _, newValue in ipairs(newChaosTimeCurse) do
-        if existingText.Id == newValue.Id then
-          data.Texts[i] = sjson.to_object(newValue, order)
+      -- Add a note that the Chaos and Hermes timers will not pause outside of combat
+      if not config.disableAllTimersOutOfCombat then
+        for _, newValue in ipairs(newChaosTimeCurse) do
+          if existingText.Id == newValue.Id then
+            data.Texts[i] = sjson.to_object(newValue, order)
+          end
         end
-      end
-      for _, newValue in ipairs(newHermesSpeedKeepsake) do
-        if existingText.Id == newValue.Id then
-          data.Texts[i] = sjson.to_object(newValue, order)
+        for _, newValue in ipairs(newHermesSpeedKeepsake) do
+          if existingText.Id == newValue.Id then
+            data.Texts[i] = sjson.to_object(newValue, order)
+          end
         end
       end
     end
